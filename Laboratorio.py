@@ -45,15 +45,35 @@ def divisionImaginarios(c1,c2):
     res[1] = numerador[1] / denominador[0]
     return res
 
-def deCartesianoAPolar(c1):
-    r = moduloImaginario(c1)
-    a = c1[0]
-    b = c1[1] 
-    alfa = math.atan(b/a)
-    return r,alfa
-    
-    
-c1 = [8,2]
-c2 = [-9,-12]
+def radianesAGrados(radianes):
+    grados = (radianes * 180) / math.pi
+    return grados
 
-print(deCartesianoAPolar(c1))
+def faseComplejos(c1):
+    angulo = 0
+    a = c1[0]
+    b = c1[1]
+    if (a < 0 and b > 0):
+        angulo = math.atan(b/a) + math.pi
+    elif( a < 0 and b < 0):
+        angulo = math.atan(b/a) + math.pi
+    elif (a > 0 and b < 0):
+        angulo = math.atan(b/a) + (math.pi*2)
+    elif (a == 0 and b > 0):
+        angulo = (math.pi) / 2
+    elif (a == 0 and b < 0):
+        angulo = (-(math.pi)/2) + (math.pi + math.pi)
+    elif (a < 0 and b == 0):
+        angulo = (math.pi) 
+    else:
+        angulo = math.atan(b/a)
+    res = radianesAGrados(angulo) 
+    return res
+        
+def deCartesianoAPolar(c1):
+    mod = moduloImaginario(c1)
+    fase = faseComplejos(c1)
+    return mod,fase 
+    
+    
+    
