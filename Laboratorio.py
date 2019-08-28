@@ -76,7 +76,8 @@ def deCartesianoAPolar(c1):
     fase = faseComplejos(c1)
     return (round(mod,2),round(fase,2))
     
-
+def dePolarACartesiano(c1):
+    return ((round(((c1[0]*math.cos(math.radians(c1[1]))*1000)/(1000)),2),round(((1000*c1[0]*math.sin(math.radians(c1[1])))/1000),2)))
 
 class TestUM(unittest.TestCase):
     #suma
@@ -103,11 +104,10 @@ class TestUM(unittest.TestCase):
         self.assertEqual((1,-2),conjugadoImaginario((1,2)))
     #polarAcartesiano
     def test_caso_polarAcartesiano_1(self):
-        pass
+        self.assertEqual((2.0,-5.0),dePolarACartesiano((5.38,291.80)))
     #cartesianoApolar
     def test_caso_cartesianoApolar_1(self):
         self.assertEqual((3.16,71.57),deCartesianoAPolar((1,3)))
-        
     #fase
     def test_caso_fase_1(self):
         self.assertEqual((291.80),faseComplejos((2,-5)))
