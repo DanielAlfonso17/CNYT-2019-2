@@ -92,9 +92,6 @@ def matrizTranspuesta(m1):
         matriz.append(columna)
     return matriz 
         
-        
-
-
 def matrizConjugada(m1):
     matriz=[]
     for i in range(0,len(m1)):
@@ -118,14 +115,34 @@ def inversaMatriz(m1):
         matriz.append(vector)
     return matriz
 
+def esHermitiana(m1):
+    m2 = matrizAdjunta(m1)
+    if(m1 == m2):
+        return True
+    return False
+
+def esUnitaria(m1):
+    unitaria = True
+    for i in range(len(m1)):
+        for j in range(len(m1[i])):
+            if i == j and m1[i][j] == 1:
+                unitaria = True 
+            if i != j and m1[i][j] != 0:
+                unitaria = False
+    return unitaria
+
+print(esUnitaria([[1,1],[1,1]]))
+    
 def complejoPorMatriz(c1,m1):
     matriz=[]
     for i in range(0,len(m1)):
         vector=[]
         for j in range(0,len(m1[0])):
-            vector.append(producto(m1[i][j],c1))
+            vector.append(productoImaginarios(m1[i][j],c1))
         matriz.append(vector)
     return matriz
+
+
 
 class TestUM(unittest.TestCase):
 
@@ -155,6 +172,10 @@ class TestUM(unittest.TestCase):
 
     def test_caso_Matriz_Adjunta(self):
         self.assertEqual([[(4,-5), (0,0),(-1,0)], [(1,0),(6, 2),(0,1)]],matrizAdjunta([[(4,5),(1,0)],[(0,0),(6,-2)],[(-1,0),(0,-1)]]))
+
+    def test_caso_Matriz_Hermitiana(self):
+        self.assertEqual(True,esHermitiana([[(2,0),(3,-1)],[(3,1),(-1,0)]]))
+
 
 if __name__ =='__main__':
     unittest.main()
