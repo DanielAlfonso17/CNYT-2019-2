@@ -113,7 +113,6 @@ def accionMatrizSobreVector(v1,m1):
             v.append(productoVectoresImaginarios(v1,m1[i]))
     return v
 
-print(accionMatrizSobreVector([(-3,1),(5,0)],[[(2,0),(3,-1)],[(3,1),(-1,0)]]))
 def inversaMatriz(m1):
     matriz=[]
     for i in range(0,len(m1)):
@@ -145,7 +144,6 @@ def productoTensorialImaginario(m1,m2):
             matriz.append(matM[k])
     return matriz
 
-print(productoTensorialImaginario([[(0,1),(0,0)],[(0,0),(0,-1)]],[[(0.70,0),(0.70,0)],[(0.70,0),(0.70,0)]]))
 
 class TestUM(unittest.TestCase):
 
@@ -179,7 +177,10 @@ class TestUM(unittest.TestCase):
     def test_caso_ProductoTensor(self):
         m=[[(1,0),(2,0)],[(3,0),(4,0)]]
         m1=[[(1,0),(2,0),(3,0)],[(1,0),(2,0),(3,0)],[(1,0),(2,0),(3,0)]]
-        self.assertEqual([[(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)]],ProductoTensor(m,m1))
+        self.assertEqual([[(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(1, 0), (2, 0), (3, 0), (2, 0), (4, 0), (6, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)], [(3, 0), (6, 0), (9, 0), (4, 0), (8, 0), (12, 0)]],productoTensorialImaginario(m,m1))
+
+    def test_caso_Accion_Matriz_Vector(self):
+        self.assertEqual([(9, -3), (-15, 0)],accionMatrizSobreVector([(-3,1),(5,0)],[[(2,0),(3,-1)],[(3,1),(-1,0)]]))
         
 
 if __name__ =='__main__':
