@@ -1,20 +1,21 @@
-	#Laboratorio 2 CNYT
-#Daniel Felipe Alfonso Bueno 
+# CNYT CIENCIAS NATURALES Y TECNOLOGIA -2019-2
+# Laboratorio 2 
+# Daniel Felipe Alfonso Bueno 
 
 En este repositorio podremos ver y utilizar cada una de las operaciones de matrices propuestas para este laboratorio, entre estas tenemos: 
 
 
-    1) Adici髇 de vectores complejos: 
+    1) Adici贸n de vectores complejos: 
     En esta operacion realizaremos una suma componente a componente de cada vector
     2) Inversa de vectores complejos:
     En esta operacion calcularemos el inverso de un vector complejo 
-    3) Multiplicaci髇 escalar de vectores complejos:
+    3) Multiplicaci贸n escalar de vectores complejos:
     En esta operacion multiplicaremos dos vectores imaginarios
-    4) Adici髇 de matrices complejos:
+    4) Adici贸n de matrices complejos:
     En esta operacion haremos la suma de dos matrices imaginarias 
     5) Inversa de matrices complejos: 
     Calcularemos la inversa de una matriz reutilizando la funcion de inverso de vectores imaginarios 
-    6)Multiplicaci髇 escalar de matrices complejas:
+    6)Multiplicaci贸n escalar de matrices complejas:
     Realizaremos la multiplicacion de matrices teniendo en cuenta la dimensionalidad de las matrices 
     7)Matriz transpuesta:
     Se realizara la matriz tanspuesta, cambio de filas por columnas 
@@ -22,7 +23,7 @@ En este repositorio podremos ver y utilizar cada una de las operaciones de matri
     Se conjugaran todos los componentes de la matriz, es decir se cambiara de signo la parte imaginaria 
     9)Matriz adjunta:
     Se hacen tanto la matriz conjugada como la transpuesta y nos da como resultado la matriz adjunta 
-    10)Funci髇 para calcular la "acci髇" de una matriz sobre un vector:
+    10)Funci贸n para calcular la "acci贸n" de una matriz sobre un vector:
     Multiplicacion de una matriz de un vector con una matriz y veremos como el resultado es un vector 
     11)Norma de matrices
     12)Distancia entrematrices
