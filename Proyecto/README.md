@@ -15,6 +15,6 @@ las usaremos para el proyecto
 - dinamicaSistemaClasico(clicks) En esta funcion podremos determinar el comportamiento de un sistema clasico de canicas a partir de 
 un numero de clicks de tiempo dados 
 
--sistemaProbabilistico(clicks) En esta funcion se determina el comportamiento de un sistema probabilistico a partir de un numero de 
+- sistemaProbabilistico(clicks) En esta funcion se determina el comportamiento de un sistema probabilistico a partir de un numero de 
 clicks dados 
 
