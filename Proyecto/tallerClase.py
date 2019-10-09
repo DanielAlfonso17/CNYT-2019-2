@@ -119,7 +119,6 @@ def dinamicaSistemaClasico(clicks):
     plt.show()
     return estado
 #Sistema dinamica clasico despues de 25 clicks
-#Parametro numero de clicks de tiempo
 dinamicaSistemaClasico(25)
 #------------------------------------Dinamica Sistema Probabilistico---------------------------------------------------#
 def sistemaProbabilistico(clicks):
@@ -138,7 +137,6 @@ def sistemaProbabilistico(clicks):
     # Vector de estado inicial sistema probabilístico B
     VB = [[0.7,0],[0.15,0],[0.15,0]]
     m1 = productoTensorial(MA,MB)
-    #m1 = productoTensorial([[0,float(1/6),float(5/6)],[float(1/3),float(1/2),float(1/6)],[float(2/3),float(1/3),0]],[[float(1/3),float(2/3)],[float(2/3),float(1/3)]])
     vectorI= productoTensorialVectores(VA,VB)
     estado = vectorI
     for i in range(clicks):
@@ -158,28 +156,8 @@ def sistemaProbabilistico(clicks):
     return estado
 #Sistema probabilistico despues de 5 clicks de tiempo 
 sistemaProbabilistico(5)
-def funcionEjercicio3(clicks):
-    matriz = [[(0.70,0),(0.70,0),(0,0)],[(0,-0.70),(0,0.70),(0,0)],[(0,0),(0,0),(0,-1)]]
-    vector = [(0.57,0),(0,0.51),(0.63,0)]
-    for i in range(clicks):
-        vector = accionMatrizSobreVector(vector,matriz)
-    return vector
 
 
-r = 1/math.sqrt(22)
-V = [[[r,r]],   #1
-     [[-r,-r]], #2
-     [[-r,r]],  #3
-     [[-r,-r]], #4
-     [[r,-r]],  #5
-     [[-r,-r]], #6
-     [[-r,-r]], #7
-     [[-r,-r]], #8
-     [[r,-r]],  #9
-     [[r,-r]],  #10
-     [[-r,r]]   
-     ]
-print(V)
 
 
 
