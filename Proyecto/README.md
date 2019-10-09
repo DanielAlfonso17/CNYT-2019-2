@@ -18,3 +18,42 @@ un numero de clicks de tiempo dados
 - sistemaProbabilistico(clicks) En esta funcion se determina el comportamiento de un sistema probabilistico a partir de un numero de 
 clicks dados 
 
+### Pruebas 
+
+- Sistema Clasico de Canicas: Para esta prueba tenemos una matriz de dinamica
+![img0](https://github.com/DanielAlfonso17/POOB/blob/master/clasico.PNG)
+
+Dada por el siguiente grafo 
+
+![img1](https://github.com/DanielAlfonso17/POOB/blob/master/3.PNG)
+
+y tenemos el siguiente vector inicial: [[10,0],[4,0],[1,0],[7,0],[2,0],[2,0],[11,0],[0,0],[3,0],[1,0],[0,0],[5,0],[2,0]] 
+Despues de 25 clicks obtenemos el siguiente resultado en la grafica que concuerda con el resultado pedido en las pruebas 
+
+![img2](https://github.com/DanielAlfonso17/POOB/blob/master/1.PNG)
+
+- Sistema Probabilistico: Para esta prueba tenemos una matriz de probabilidades dada por el siguiente grafo con los dos 
+sistemas ensamblados 
+
+![img3](https://github.com/DanielAlfonso17/POOB/blob/master/10.PNG)
+
+Dos matrices para ensamblar los sistemas mediante un producto tensorial que son las siguientes junto con los dos vectores 
+de estado inicial 
+
+![img4](https://github.com/DanielAlfonso17/POOB/blob/master/probabilistico.PNG)
+
+Ahora si ejecutamos el nuestro programa despues de 5 clicks de tiempo obtenemos el resultado esperado de probabilidades, que se muestra
+en el siguiente grafico 
+
+![img4](https://github.com/DanielAlfonso17/POOB/blob/master/2.PNG)
+
+
+
+
+
+
+
+
+
+
+
