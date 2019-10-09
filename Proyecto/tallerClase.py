@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import math
-
+#------------------------------------Funciones Complementarias---------------------------------------------------#
 def productoVectoresImaginarios(c1,c2):
     ini = (0,0)
     for i in range(len(c1)):
@@ -82,9 +82,11 @@ def complejoPorVector(c1,m1):
     for i in range(0,len(m1)):
             matriz.append(productoImaginarios(m1[i],c1))
     return matriz
-# Matriz de dinámica para el sistema clásico de canicas
 
+#------------------------------------Dinamica del Sistema Clasico---------------------------------------------------#
+#Parametro numero de clicks de tiempo 
 def dinamicaSistemaClasico(clicks):
+    # Matriz de dinámica para el sistema clásico de canicas
     matriz = [[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0]], 
      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0]], 
      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0]], 
@@ -98,11 +100,11 @@ def dinamicaSistemaClasico(clicks):
      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0]], 
      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0],[0,0],[0,0],[0,0],[0,0],[0,0]], 
      [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]]
+    # Vector de estado inicial 
     vectorI=[[10,0],[4,0],[1,0],[7,0],[2,0],[2,0],[11,0],[0,0],[3,0],[1,0],[0,0],[5,0],[2,0]]    
     estado = vectorI
     for i in range(clicks):
         estado = accionMatrizSobreVector(estado,matriz)
-    #print(funcionEjercicio1(matriz,vector,3000))
     fig = plt.figure(u'Evolucion Dinamica del Sistema Clasico despues de 25 clicks de Tiempo') # Figure
     ax = fig.add_subplot(111) # Axes
 
@@ -115,9 +117,11 @@ def dinamicaSistemaClasico(clicks):
     ax.set_xticklabels(nombres)
 
     plt.show()
-    return estado 
+    return estado
+#Sistema dinamica clasico despues de 25 clicks
+#Parametro numero de clicks de tiempo
 dinamicaSistemaClasico(25)
-
+#------------------------------------Dinamica Sistema Probabilistico---------------------------------------------------#
 def sistemaProbabilistico(clicks):
     # Matriz de la dinámica para el sistema probabilístico A
     MA = [[[0,0],[0.2,0],[0.3,0],[0.5,0]],
@@ -152,7 +156,7 @@ def sistemaProbabilistico(clicks):
 
     plt.show()
     return estado
-
+#Sistema probabilistico despues de 5 clicks de tiempo 
 sistemaProbabilistico(5)
 def funcionEjercicio3(clicks):
     matriz = [[(0.70,0),(0.70,0),(0,0)],[(0,-0.70),(0,0.70),(0,0)],[(0,0),(0,0),(0,-1)]]
@@ -160,14 +164,6 @@ def funcionEjercicio3(clicks):
     for i in range(clicks):
         vector = accionMatrizSobreVector(vector,matriz)
     return vector
-
-#print(funcionEjercicio3(4))
-matriz = [[0,0,0,0,0,0],[0,0,0,1,0,0],[0,1,0,0,0,1],[0,0,1,0,0,0],[0,0,0,0,1,0],[1,0,0,0,0,0]]
-vector =[6,5,4,3,2,1]
-
-vectorPosI = [0.01,0.9,0.09]
-vectorPerI = [0.05,0.95]
-#print(funcionEjercicio2(900))
 
 
 r = 1/math.sqrt(22)
