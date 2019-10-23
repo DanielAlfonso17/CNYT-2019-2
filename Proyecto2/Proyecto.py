@@ -80,7 +80,13 @@ def normalizacion(v1):
     vectorN=multiplicacionEscalarVector((1/normaVector,0),v1)
     return vectorN
         
-    
+def productoMatricesImaginarias(m1,m2):
+    matriz = [[None] * len(m2[0]) for i in range(len(m1))]
+    for i in range(len(m1)):
+        for j in range(len(m2[0])):
+            columna = [row[j] for row in m2]
+            matriz[i][j] = productoVectoresImaginarios(m1[i],columna)
+    return matriz
     
 #--------------------------------PROYECTO------------------------------------
 def particulaLineaRecta(v1):
@@ -108,17 +114,48 @@ v1=[[2, -1],
  [-1, 1]]       
 print(particulaLineaRecta(v1))
 
-def calculadoraEstadisticaObservables(m1,v1):
-    vector = accionMatrizSobreVector(v1,m1)
+def calculadoraEstadisticaObservables(m1,v1):    
     vectorNormalizado=normalizacion(v1)
     vEncapsulado=[]
     for i in vectorNormalizado:
         vEncapsulado.append([i])
-        
+    vector = productoMatricesImaginarias(v1,m1)
     adjunta = matrizAdjunta(vEncapsulado)
+    adjuntaPorMatriz = productoMatricesImaginarias(adjunta,vEncapsulado)
+    
     
     return resultado
 
+def calculadoraEstadisticaObservables(m,v):
+    vectorNormalizado=normalizacion(v)    
+    vEncapsulado=[]
+    for i in vxyz:
+        vfin.append([i])
+        
+    mz=productoMatricesImaginarias(m,vfin)
+
+    mz2=matrizAdjunta(mz)
+
+    mf=productoMatricesImaginarias(mz2,vfin)
+    print(mf)
+    my=mf[0][0][0]
+    mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
+ 
+    for i1 in range(len(m)):
+        for j1 in range(len(m[0])):
+            m[i1][j1][0]=m[i1][j1][0]-mi[i1][j1][0]
+            
+    mat=productoMatricesImaginarias(m,m)
+    vfin3=matrizAdjunta(vfin)
+    matx=productoMatricesImaginarias(vfin3,mat)
+    matz=productoMatricesImaginarias(matx,vfin)
+    print(matz[0][0][0])
+    
+m1 = [[[0,0],[0,-1/2],[0,-1],[-7/2,0]],
+ [[0,1/2],[0,0],[7/2,0],[0,-1]],
+ [[0,1],[7/2,0],[0,0],[0,-1/2]],
+ [[-7/2,0],[0,1],[0,1/2],[0,0]]
+]
 def valoresobservables(m,v):
     vp=normaVectorImaginario(v)
     
@@ -136,7 +173,6 @@ def valoresobservables(m,v):
     print(mf)
     my=mf[0][0][0]
     mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
-    print(matz)
  
     for i1 in range(len(m)):
         for j1 in range(len(m[0])):
@@ -147,11 +183,6 @@ def valoresobservables(m,v):
     matx=productoMatricesImaginarias(vfin3,mat)
     matz=productoMatricesImaginarias(matx,vfin)
     print(matz)
-m1 = [[[0,0],[0,-1/2],[0,-1],[-7/2,0]],
- [[0,1/2],[0,0],[7/2,0],[0,-1]],
- [[0,1],[7/2,0],[0,0],[0,-1/2]],
- [[-7/2,0],[0,1],[0,1/2],[0,0]]
-]
 
 vI= [[-2, 1],
  [1, 0],
