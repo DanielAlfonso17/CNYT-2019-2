@@ -77,7 +77,8 @@ def normalizacion(v1):
     normaVector = normaVectorImaginario(v1)
     vector = []
 
-    print(multiplicacionEscalarVector((1/normaVector,0),v1))
+    vectorN=multiplicacionEscalarVector((1/normaVector,0),v1)
+    return vectorN
         
     
     
@@ -85,7 +86,7 @@ def normalizacion(v1):
 def particulaLineaRecta(v1):
     probabilidad=[]
     normaVectorCuadrado = (normaVectorImaginario(v1))**2
-    print(normaVectorCuadrado)
+
     for i in v1:
         j =(normaImaginario(i))/normaVectorCuadrado
         probabilidad.append(round(((normaImaginario(i))/normaVectorCuadrado),4))
@@ -110,11 +111,42 @@ print(particulaLineaRecta(v1))
 def calculadoraEstadisticaObservables(m1,v1):
     vector = accionMatrizSobreVector(v1,m1)
     vectorNormalizado=normalizacion(v1)
+    vEncapsulado=[]
+    for i in vectorNormalizado:
+        vEncapsulado.append([i])
+        
+    adjunta = matrizAdjunta(vEncapsulado)
     
-    adjunta = matrizAdjunta(vector)
-    resultado = productoVectoresImaginarios(adjunta,vector)
     return resultado
 
+def valoresobservables(m,v):
+    vp=normaVectorImaginario(v)
+    
+    vxyz=multiplicacionEscalarVector(((1/vp),0),v)
+    
+    vfin=[]
+    for i in vxyz:
+        vfin.append([i])
+        
+    mz=productoMatricesImaginarias(m,vfin)
+
+    mz2=matrizAdjunta(mz)
+
+    mf=productoMatricesImaginarias(mz2,vfin)
+    print(mf)
+    my=mf[0][0][0]
+    mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
+    print(matz)
+ 
+    for i1 in range(len(m)):
+        for j1 in range(len(m[0])):
+            m[i1][j1][0]=m[i1][j1][0]-mi[i1][j1][0]
+            
+    mat=productoMatricesImaginarias(m,m)
+    vfin3=matrizAdjunta(vfin)
+    matx=productoMatricesImaginarias(vfin3,mat)
+    matz=productoMatricesImaginarias(matx,vfin)
+    print(matz)
 m1 = [[[0,0],[0,-1/2],[0,-1],[-7/2,0]],
  [[0,1/2],[0,0],[7/2,0],[0,-1]],
  [[0,1],[7/2,0],[0,0],[0,-1/2]],
