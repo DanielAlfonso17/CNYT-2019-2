@@ -92,6 +92,7 @@ def productoMatricesImaginarias(m1,m2):
 def particulaLineaRecta(v1):
     probabilidad=[]
     normaVectorCuadrado = (normaVectorImaginario(v1))**2
+    print("Vector de estado Inicial:",v1)
 
     for i in v1:
         j =(normaImaginario(i))/normaVectorCuadrado
@@ -111,84 +112,48 @@ v1=[[2, -1],
  [-3.5, 2.5],
  [6, -4],
  [0, 2.5],
- [-1, 1]]       
-print(particulaLineaRecta(v1))
+ [-1, 1]]
+print("-------------------------Prueba Particula Linea Recta-------------------------")
+print("Parametro v1 Vector de estado Inicial" )
+print("Vector de probabilidades calculado:",particulaLineaRecta(v1))
 
 def calculadoraEstadisticaObservables(m1,v1):    
     vectorNormalizado=normalizacion(v1)
     vEncapsulado=[]
     for i in vectorNormalizado:
         vEncapsulado.append([i])
-    vector = productoMatricesImaginarias(v1,m1)
-    adjunta = matrizAdjunta(vEncapsulado)
-    adjuntaPorMatriz = productoMatricesImaginarias(adjunta,vEncapsulado)
-    
-    
-    return resultado
+    vector = productoMatricesImaginarias(m1,vEncapsulado)
+    adjuntaVector=matrizAdjunta(vector);
+    productoAdjuntaVector= productoMatricesImaginarias(adjuntaVector,vEncapsulado)
+    print("Valor Esperado:",round(productoAdjuntaVector[0][0][0],2))
+    valorEsperado=productoAdjuntaVector[0][0][0]
+    calculoVarianza=[[[valorEsperado,0],[0,0],[0,0],[0,0]],[[0,0],[valorEsperado,0],[0,0],[0,0]],[[0,0],[0,0],[valorEsperado,0],[0,0]],[[0,0],[0,0],[0,0],[valorEsperado,0]]]
+    for i in range(len(m1)):
+        for j in range(len(m1[0])):
+            m1[i][j][0]=m1[i][j][0]-calculoVarianza[i][j][0]
+    matrizCuadrado=productoMatricesImaginarias(m1,m1)
+    adjuntaVectorInicial=matrizAdjunta(vEncapsulado)
+    matx=productoMatricesImaginarias(adjuntaVectorInicial,matrizCuadrado)
+    varianza=productoMatricesImaginarias(matx,vEncapsulado)
+    print("Varianza:",varianza[0][0][0])
 
-def calculadoraEstadisticaObservables(m,v):
-    vectorNormalizado=normalizacion(v)    
-    vEncapsulado=[]
-    for i in vxyz:
-        vfin.append([i])
-        
-    mz=productoMatricesImaginarias(m,vfin)
 
-    mz2=matrizAdjunta(mz)
-
-    mf=productoMatricesImaginarias(mz2,vfin)
-    print(mf)
-    my=mf[0][0][0]
-    mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
- 
-    for i1 in range(len(m)):
-        for j1 in range(len(m[0])):
-            m[i1][j1][0]=m[i1][j1][0]-mi[i1][j1][0]
-            
-    mat=productoMatricesImaginarias(m,m)
-    vfin3=matrizAdjunta(vfin)
-    matx=productoMatricesImaginarias(vfin3,mat)
-    matz=productoMatricesImaginarias(matx,vfin)
-    print(matz[0][0][0])
     
 m1 = [[[0,0],[0,-1/2],[0,-1],[-7/2,0]],
  [[0,1/2],[0,0],[7/2,0],[0,-1]],
  [[0,1],[7/2,0],[0,0],[0,-1/2]],
  [[-7/2,0],[0,1],[0,1/2],[0,0]]
 ]
-def valoresobservables(m,v):
-    vp=normaVectorImaginario(v)
-    
-    vxyz=multiplicacionEscalarVector(((1/vp),0),v)
-    
-    vfin=[]
-    for i in vxyz:
-        vfin.append([i])
-        
-    mz=productoMatricesImaginarias(m,vfin)
 
-    mz2=matrizAdjunta(mz)
-
-    mf=productoMatricesImaginarias(mz2,vfin)
-    print(mf)
-    my=mf[0][0][0]
-    mi=[[[my,0],[0,0],[0,0],[0,0]],[[0,0],[my,0],[0,0],[0,0]],[[0,0],[0,0],[my,0],[0,0]],[[0,0],[0,0],[0,0],[my,0]]]
- 
-    for i1 in range(len(m)):
-        for j1 in range(len(m[0])):
-            m[i1][j1][0]=m[i1][j1][0]-mi[i1][j1][0]
-            
-    mat=productoMatricesImaginarias(m,m)
-    vfin3=matrizAdjunta(vfin)
-    matx=productoMatricesImaginarias(vfin3,mat)
-    matz=productoMatricesImaginarias(matx,vfin)
-    print(matz)
 
 vI= [[-2, 1],
  [1, 0],
  [0,-1],
  [3,2]
 ]
+print("------------------Prueba Calculadora Estadistica Observables------------------")
+print("-------Valor Esperado -------------------Varianza-----------------------------")
+print("Parametro m1 matriz correspondiente al observable y v1 Vector de estado Inicial")
 calculadoraEstadisticaObservables(m1,vI)
-    
+
 
