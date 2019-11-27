@@ -70,7 +70,7 @@ def faseComplejos(c1):
         angulo = (math.pi) 
     else:
         angulo = math.atan(b/a)
-    res = round(radianesAGrados(angulo),2)
+    res = radianesAGrados(angulo)
     return res
         
 def deCartesianoAPolar(c1):
