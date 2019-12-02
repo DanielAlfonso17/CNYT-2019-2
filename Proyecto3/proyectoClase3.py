@@ -2,7 +2,8 @@ import math
 from Laboratorio import *
 from Laboratorio2 import *
 from tallerClase import *
-from Proyecto import *
+#from Proyecto import *
+#import matplotlib.pyplot as plt
 matrizCero = [[(1,0),(0,0),(0,0),(0,0)],[(0,0),(1,0),(0,0),(0,0)],[(0,0),(0,0),(1,0),(0,0)],[(0,0),(0,0),(0,0),(1,0)]]
 matrizCeroUno = [[(1,0),(0,0),(0,0),(0,0)],[(0,0),(1,0),(0,0),(0,0)],[(0,0),(0,0),(0,0),(1,0)],[(0,0),(0,0),(1,0),(0,0)]]
 matrizUno = [[(0,0),(1,0),(0,0),(0,0)],[(1,0),(0,0),(0,0),(0,0)],[(0,0),(0,0),(0,0),(1,0)],[(0,0),(0,0),(1,0),(0,0)]]

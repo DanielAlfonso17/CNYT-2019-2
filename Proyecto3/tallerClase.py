@@ -1,4 +1,4 @@
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import math
 #------------------------------------Funciones Complementarias---------------------------------------------------#
 def productoVectoresImaginarios(c1,c2):
@@ -84,7 +84,8 @@ def complejoPorVector(c1,m1):
     return matriz
 
 #------------------------------------Dinamica del Sistema Clasico---------------------------------------------------#
-#Parametro numero de clicks de tiempo 
+#Parametro numero de clicks de tiempo
+"""
 def dinamicaSistemaClasico(clicks):
     # Matriz de dinámica para el sistema clásico de canicas
     matriz = [[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[1,0]], 
@@ -158,6 +159,6 @@ def sistemaProbabilistico(clicks):
 #sistemaProbabilistico(5)
 
 
-
+"""
 
 
